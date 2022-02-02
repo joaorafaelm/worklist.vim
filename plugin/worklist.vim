@@ -266,11 +266,11 @@ endfunction
 " Close the note popup
 function! s:CloseNotePopup() abort
     let s:use_vim_popup = has('patch-8.1.1517') && !has('nvim')
-	let s:use_nvim_float = exists('*nvim_open_win') && has('nvim')
-    if s:use_vim_popup && s:notewinid
-        call popup_close(s:notewinid)
-    elseif s:use_nvim_float && s:notewinid
-        call nvim_win_close(s:notewinid, 0)
+    let s:use_nvim_float = exists('*nvim_open_win') && has('nvim')
+    if s:use_vim_popup && s:winid
+        call popup_close(s:winid)
+    elseif s:use_nvim_float && s:winid
+        call nvim_win_close(s:winid, 0)
     else
         pclose
     endif
