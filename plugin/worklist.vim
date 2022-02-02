@@ -270,7 +270,7 @@ function! s:CloseNotePopup() abort
     if s:use_vim_popup && s:winid
         call popup_close(s:winid)
     elseif s:use_nvim_float && s:winid
-        call nvim_win_close(s:winid, 0)
+        " call nvim_win_close(s:winid, 0)
     else
         pclose
     endif
