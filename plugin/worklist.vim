@@ -265,7 +265,7 @@ endfunction
 
 " Close the note popup
 function! s:CloseNotePopup() abort
-    call popup_close(s:notewinid)
+    call s:ShowNotePopup(v:false)
 endfunction
 
 
