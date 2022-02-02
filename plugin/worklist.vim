@@ -265,7 +265,13 @@ endfunction
 
 " Close the note popup
 function! s:CloseNotePopup() abort
-    call s:ShowNotePopup(v:false)
+     if s:use_vim_popup && s:winid
+         call popup_close(s:winid)
+     elseif s:use_nvim_float && s:winid
+         call nvim_win_close(s:winid, 0)
+     else
+         pclose
+     endif
 endfunction
 
 
