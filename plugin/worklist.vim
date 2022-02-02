@@ -240,26 +240,7 @@ endfunction
 
 " Show a popup with the note for the current worklist item
 function! s:ShowNotePopup(force=v:false) abort
-    if s:IsCurrentQuickfix()
-        let index = line('.') - 1
-        if index >= len(s:worklist) || (index == s:last_idx && !a:force)
-            return
-        endif
-        let s:last_idx = index
-        call s:CloseNotePopup()
-
-        let item = s:worklist[index]
-        if !empty(get(item, 'note', ''))
-            let s:notewinid = popup_atcursor(item.note, {
-                        \   'border': [1, 1, 1, 1],
-                        \   'borderchars': [' '],
-                        \   'moved': [index + 1, 0, 999],
-                        \   'maxwidth': g:worklist_popup_maxwidth,
-                        \ })
-            call setwinvar(s:notewinid, '&showbreak', 'NONE')
-            call setwinvar(s:notewinid, '&linebreak', 1)
-        endif
-    endif
+" remove popup support since it does not work on nvim
 endfunction
 
 
