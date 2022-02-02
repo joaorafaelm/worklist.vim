@@ -112,9 +112,8 @@ function! s:QfTextFunc(info) abort
     for idx in range(a:info.start_idx - 1, a:info.end_idx - 1)
         let item = s:worklist[idx]
         let text = fnamemodify(item.filename, ':p:.')
-        let text ..= '|' .. item.lnum .. '|'
+        let text ..= '|' .. item.lnum .. '| '
         let text ..= trim(item.text)
-
         call add(lines, text)
     endfor
     return lines
